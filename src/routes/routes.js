@@ -3,11 +3,11 @@ const router = express.Router();
 
 
 router.get("/whoami", (req, res) => {
-
+    const { ip, rawHeaders } = req;
     const responseObject = {
-        ipaddress: req.ip,
-        language: req.rawHeaders[7],
-        software: req.rawHeaders[3],
+        ipaddress: ip,
+        language: rawHeaders[7],
+        software: rawHeaders[3]
     }
     res.json(responseObject);
 })
